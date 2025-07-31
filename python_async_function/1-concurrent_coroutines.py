@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+"""Module that defines wait_n coroutine.
+This coroutine runs wait_random concurrently n times and
+returns a list of the delays in order of completion.
+"""
 import asyncio
 from typing import List
 wait_random = __import__('0-basic_async_syntax').wait_random
