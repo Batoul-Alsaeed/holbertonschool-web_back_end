@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+"""Module that defines task_wait_n coroutine.
+This coroutine runs task_wait_random concurrently n times and
+returns a list of delays ordered by completion time.
+"""
 import asyncio
 from typing import List
 task_wait_random = __import__('3-tasks').task_wait_random
