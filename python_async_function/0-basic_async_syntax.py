@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+"""Module that defines wait_random coroutine.
+This coroutine waits for a random delay between 0 and max_delay
+and returns the delay value.
+"""
 import asyncio
 import random
 
