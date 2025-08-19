@@ -44,13 +44,6 @@ class Server:
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         """
         Retrieve a specific page of the dataset.
-
-        Args:
-            page (int): Page number (1-indexed), must be > 0.
-            page_size (int): Number of rows per page, must be > 0.
-
-        Returns:
-            List[List]: The requested page of the dataset or [] if out of range.
         """
         assert isinstance(page, int) and page > 0
         assert isinstance(page_size, int) and page_size > 0
