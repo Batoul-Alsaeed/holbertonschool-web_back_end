@@ -54,7 +54,7 @@ eslint eslint-config-airbnb-base eslint-plugin-import eslint-plugin-jest \
 npm run full-test
 ```
 
-# Scripts
+### Scripts
 ```bash
 npm test          # run Jest
 npm run full-test # ESLint + Jest (used by graders)
