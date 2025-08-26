@@ -1,89 +1,33 @@
 # ES6 Data Manipulation
 
-> Holberton – ES6_data_manipulation (Node 20, Jest, Babel, ESLint)
-
-Manipulate data using modern ES6 features: `map`, `filter`, `reduce`, Typed Arrays, `Set`, `Map`, and `WeakMap`.  
-All functions export clean, testable modules that pass ESLint (Airbnb) and Jest.
-
----
-
-## Learning Objectives
-- Use `map`, `filter`, and `reduce` on arrays.
-- Understand and use **Typed Arrays** with `ArrayBuffer` / `DataView`.
-- Work with **Set**, **Map**, and **WeakMap`.
-- Write clean ES6 modules (`export default`) that pass lint & tests.
+> Holberton by Tuwaiq Academy – ES6_data_manipulation (Node 20, Jest, Babel, ESLint)
+**About the Project**
+This project focuses on **data processing in JavaScript** using modern ES6 features, such as:
+`Map`, `Filter`, `Reduce`, `Typed Arrays`, `Assign`, `Map`, and `Weak Map`.
+The goal is to write **clean, organized, and testable code** that successfully passes all **Airbnb ESLint standards** and **Jest tests**.
 
 ---
-
-## Requirements
-- **OS**: Ubuntu 20.04 LTS  
-- **Node**: 20.x.x (tested with `v20.15.1`)  
-- **npm**: 9–10 (tested with `10.7.0`)  
-- **Editors**: vi/vim, emacs, VS Code  
-- All files end with a new line  
-- All functions exported (default unless otherwise specified)
-
+## I learned:
+- Use `map`, `filter`, and `reduce` efficiently.  
+- Work with **Typed Arrays** using `ArrayBuffer` and `DataView`.  
+- Handle data with **Set**, **Map**, and **WeakMap**.  
+- Write clean **ES6 Modules** that are fully tested.
 ---
-
-## Setup
+## Installation & Setup
 
 ```bash
-# 1) create project
+# 1) Create the project
 mkdir ES6_data_manipulation && cd ES6_data_manipulation
 npm init -y
 
-# 2) dev dependencies
+# 2) Install dependencies
 npm install --save-dev jest babel-jest @babel/core @babel/preset-env \
 eslint eslint-config-airbnb-base eslint-plugin-import eslint-plugin-jest \
 @babel/node
-```
 
----
-Add the provided configs exactly:
-
-package.json (scripts section)
-```bash
-{
-  "scripts": {
-    "lint": "./node_modules/.bin/eslint",
-    "check-lint": "lint [0-9]*.js",
-    "dev": "npx babel-node",
-    "test": "jest",
-    "full-test": "./node_modules/.bin/eslint [0-9]*.js && jest"
-  }
-}
+# 3) Run all tests
+npm run full-test
 ```
-babel.config.js
-```bash
-module.exports = {
-  presets: [
-    ['@babel/preset-env', { targets: { node: 'current' } }],
-  ],
-};
-```
-.eslintrc.js
-```bash
-module.exports = {
-  env: { browser: false, es6: true, jest: true },
-  extends: ['airbnb-base', 'plugin:jest/all'],
-  globals: { Atomics: 'readonly', SharedArrayBuffer: 'readonly' },
-  parserOptions: { ecmaVersion: 2018, sourceType: 'module' },
-  plugins: ['jest'],
-  rules: {
-    'max-classes-per-file': 'off',
-    'no-underscore-dangle': 'off',
-    'no-console': 'off',
-    'no-shadow': 'off',
-    'no-restricted-syntax': ['error', 'LabeledStatement', 'WithStatement'],
-  },
-  overrides: [{ files: ['*.js'], excludedFiles: 'babel.config.js' }],
-};
-```
-Then:
-```bash
-npm install
-```
-
 ---
 
 ## Project Structure
@@ -145,7 +89,83 @@ For WeakMap, keys must be objects.
 
 Run npm run full-test frequently to catch lint + tests.
 ---
+## Setup
 
+```bash
+# 1) create project
+mkdir ES6_data_manipulation && cd ES6_data_manipulation
+npm init -y
+
+# 2) dev dependencies
+npm install --save-dev jest babel-jest @babel/core @babel/preset-env \
+eslint eslint-config-airbnb-base eslint-plugin-import eslint-plugin-jest \
+@babel/node
+```
+
+---
+Add the provided configs exactly:
+
+package.json (scripts section)
+```bash
+{
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint",
+    "check-lint": "lint [0-9]*.js",
+    "dev": "npx babel-node",
+    "test": "jest",
+    "full-test": "./node_modules/.bin/eslint [0-9]*.js && jest"
+  }
+}
+```
+babel.config.js
+```bash
+module.exports = {
+  presets: [
+    ['@babel/preset-env', { targets: { node: 'current' } }],
+  ],
+};
+```
+.eslintrc.js
+```bash
+module.exports = {
+  env: { browser: false, es6: true, jest: true },
+  extends: ['airbnb-base', 'plugin:jest/all'],
+  globals: { Atomics: 'readonly', SharedArrayBuffer: 'readonly' },
+  parserOptions: { ecmaVersion: 2018, sourceType: 'module' },
+  plugins: ['jest'],
+  rules: {
+    'max-classes-per-file': 'off',
+    'no-underscore-dangle': 'off',
+    'no-console': 'off',
+    'no-shadow': 'off',
+    'no-restricted-syntax': ['error', 'LabeledStatement', 'WithStatement'],
+  },
+  overrides: [{ files: ['*.js'], excludedFiles: 'babel.config.js' }],
+};
+```
+Then:
+```bash
+npm install
+```
+---
+
+## Best Practices & Tips
+- Avoid Mutations → Always return a new array or object.
+- Match Error Messages Exactly → For example:
+Position outside range
+Cannot process
+Endpoint load is high
+- Use export default unless stated otherwise.
+- WeakMap Keys Must Be Objects → Do not use strings or numbers as keys.
+- Always run npm run full-test before pushing your code.
+
+---
+
+## Final Notes
+The ES6 Data Manipulation project is more than a coding exercise —
+it's a practical journey into writing *modern, efficient, and scalable JavaScript.*
+
+---
 
 
 
