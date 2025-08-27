@@ -37,12 +37,12 @@ The goal is to write **clean, organized, and testable code** that passes **Airbn
 - Run tests frequently with `npm run full-test` to catch lint & logic issues early.
 
 ## Installation & Setup
-# 1) Create the project
+### 1) Create the project
 ```bash
 mkdir ES6_promise && cd ES6_promise
 npm init -y
 ```
-# 2) Install dependencies
+### 2) Install dependencies
 ```bash
 npm install --save-dev jest babel-jest @babel/core @babel/preset-env \
 eslint eslint-config-airbnb-base eslint-plugin-import eslint-plugin-jest \
