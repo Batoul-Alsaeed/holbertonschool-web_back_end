@@ -32,6 +32,6 @@ export async function readDatabase(path) {
 
     return groups;
   } catch (e) {
-    throw new Error('Cannot load the database');
+    throw e;
   }
 }
