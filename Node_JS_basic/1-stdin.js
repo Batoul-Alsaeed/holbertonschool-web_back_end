@@ -1,16 +1,19 @@
 // Display the welcome message
 process.stdout.write('Welcome to Holberton School, what is your name?\n');
 
-// Set encoding for stdin
+// Ensure stdin is read as UTF-8 text
 process.stdin.setEncoding('utf8');
 
-// Event listener when the user inputs data
-process.stdin.on('data', (data) => {
-  const name = data.toString().trim();
-  process.stdout.write(`Your name is: ${name}\n`);
+// Use the 'readable' event and read() to fetch available input chunks
+process.stdin.on('readable', () => {
+  const chunk = process.stdin.read();
+  if (chunk !== null) {
+    // Print the chunk as-is (it already includes a trailing newline if piped via `echo`)
+    process.stdout.write(`Your name is: ${chunk}`);
+  }
 });
 
-// Event listener when the input stream ends (Ctrl + D or EOF)
+// On EOF (Ctrl+D or when input stream ends), print the closing line
 process.stdin.on('end', () => {
   process.stdout.write('This important software is now closing\n');
 });
