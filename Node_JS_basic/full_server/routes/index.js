@@ -1,11 +1,14 @@
 import { Router } from 'express';
-import AppController from '../controllers/AppController.js';
-import StudentsController from '../controllers/StudentsController.js';
+import AppController from '../controllers/AppController';
+import StudentsController from '../controllers/StudentsController';
 
-const router = Router();
+function controllerRouting(app) {
+  const router = Router();
+  app.use('/', router);
 
-router.get('/', AppController.getHomepage);
-router.get('/students', StudentsController.getAllStudents);
-router.get('/students/:major', StudentsController.getAllStudentsByMajor);
+  router.get('/', AppController.getHomepage);
+  router.get('/students', StudentsController.getAllStudents);
+  router.get('/students/:major', StudentsController.getAllStudentsByMajor);
+}
 
-export default router;
+export default controllerRouting;
