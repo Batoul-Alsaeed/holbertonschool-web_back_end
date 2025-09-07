@@ -1,37 +1,34 @@
-import fs from 'fs/promises';
+const fs = require('fs');
 
-export async function readDatabase(path) {
-  try {
-    const content = await fs.readFile(path, 'utf8');
+function readDatabase(path) {
+  return new Promise((resolve, reject) => {
+    fs.readFile(path, 'utf8', (err, data) => {
+      if (err) {
+        reject(Error(err));
+        return;
+      }
+      const content = data.toString().split('\n');
 
-    // Split lines, drop empties
-    const lines = content
-      .split('\n')
-      .map((l) => l.trim())
-      .filter((l) => l.length > 0);
+      let students = content.filter((item) => item);
 
-    if (lines.length <= 1) {
-      // Only header or empty: return empty groups
-      return {};
-    }
+      students = students.map((item) => item.split(','));
 
-    const header = lines[0].split(',');
-    const idxFirst = header.indexOf('firstname');
-    const idxField = header.indexOf('field');
+      const fields = {};
+      for (const i in students) {
+        if (i !== 0) {
+          if (!fields[students[i][3]]) fields[students[i][3]] = [];
 
-    const groups = {}; // { CS: [firstnames...], SWE: [...] }
+          fields[students[i][3]].push(students[i][0]);
+        }
+      }
 
-    for (const line of lines.slice(1)) {
-      const cols = line.split(',');
-      if (cols.length !== header.length) continue;
-      const first = cols[idxFirst];
-      const field = cols[idxField];
-      if (!groups[field]) groups[field] = [];
-      groups[field].push(first);
-    }
+      delete fields.field;
 
-    return groups;
-  } catch (e) {
-    throw e;
-  }
+      resolve(fields);
+
+      //   return fields;
+    });
+  });
 }
+
+export default readDatabase;
